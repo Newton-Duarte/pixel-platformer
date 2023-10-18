@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,11 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 4f;
     [SerializeField] float jumpForce = 600f;
+    [SerializeField] Transform groundCheckL;
+    [SerializeField] Transform groundCheckR;
+    [SerializeField] LayerMask groundLayers;
+
+    bool isGrounded;
 
     Vector2 rawInput;
     Rigidbody2D rb;
@@ -22,6 +28,14 @@ public class Player : MonoBehaviour
     {
         Run();
         FlipSprite();
+        IsGrounded();
+    }
+
+    void IsGrounded()
+    {
+        isGrounded = Physics2D.OverlapArea(groundCheckL.position, groundCheckR.position, groundLayers);
+        Debug.Log(isGrounded);
+        animator.SetBool("isGrounded", isGrounded);
     }
 
     bool isPlayerMoving => Mathf.Abs(rb.velocity.x) > Mathf.Epsilon;
