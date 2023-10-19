@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 946001310266995119}
   - component: {fileID: 7775837401245474806}
   m_Layer: 0
-  m_Name: flagYellow
+  m_Name: FlagYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
