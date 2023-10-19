@@ -22,6 +22,12 @@ public class Player : MonoBehaviour
     Vector2 rawInput;
     Rigidbody2D rb;
     Animator animator;
+    GameManager gameManager;
+
+    void Awake()
+    {
+        gameManager = FindAnyObjectByType<GameManager>();
+    }
 
     void Start()
     {
@@ -92,7 +98,7 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(0f, rb.velocity.y);
         animator.SetTrigger("isHurt");
         PlaySFX(dieClip);
-
+        gameManager.ProcessPlayerDeath();
     }
 
     void PlaySFX(AudioClip clip)
