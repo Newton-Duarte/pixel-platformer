@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     Vector2 rawInput;
     Rigidbody2D rb;
     Animator animator;
+    CapsuleCollider2D bodyCollider;
     GameManager gameManager;
 
     void Awake()
@@ -65,7 +66,7 @@ public class Player : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (value.isPressed)
+        if (isGrounded && value.isPressed)
         {
             rb.AddForceY(jumpForce);
             PlaySFX(jumpClip);
