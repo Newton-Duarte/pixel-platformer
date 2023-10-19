@@ -12,6 +12,10 @@ public class Player : MonoBehaviour
     [SerializeField] Transform groundCheckR;
     [SerializeField] LayerMask groundLayers;
 
+    [SerializeField] AudioClip jumpClip;
+    [SerializeField] AudioClip spikeClip;
+    [SerializeField] AudioClip dieClip;
+
     bool isGrounded;
     public bool isAlive { get; private set; } = true;
 
@@ -58,6 +62,7 @@ public class Player : MonoBehaviour
         if (value.isPressed)
         {
             rb.AddForceY(jumpForce);
+            PlaySFX(jumpClip);
         }
     }
 
