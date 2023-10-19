@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] LayerMask groundLayers;
 
     bool isGrounded;
+    public bool isAlive { get; private set; } = true;
 
     Vector2 rawInput;
     Rigidbody2D rb;
@@ -26,6 +27,8 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!isAlive) return;
+
         Run();
         FlipSprite();
         IsGrounded();
@@ -34,7 +37,6 @@ public class Player : MonoBehaviour
     void IsGrounded()
     {
         isGrounded = Physics2D.OverlapArea(groundCheckL.position, groundCheckR.position, groundLayers);
-        Debug.Log(isGrounded);
         animator.SetBool("isGrounded", isGrounded);
     }
 
@@ -65,5 +67,31 @@ public class Player : MonoBehaviour
         {
             transform.localScale = new Vector2(Mathf.Sign(rb.velocity.x), transform.localScale.y);
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!isAlive) return;
+
+        if (collision.gameObject.tag == "Hazard")
+        {
+            PlaySFX(spikeClip);
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        isAlive = false;
+        rb.velocity = new Vector2(10f, 10f);
+        rb.velocity = new Vector2(0f, rb.velocity.y);
+        animator.SetTrigger("isHurt");
+        PlaySFX(dieClip);
+
+    }
+
+    void PlaySFX(AudioClip clip)
+    {
+        AudioManager.GetInstance().PlaySFX(clip);
     }
 }
