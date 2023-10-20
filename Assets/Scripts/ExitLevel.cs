@@ -29,7 +29,7 @@ public class ExitLevel : MonoBehaviour
         yield return new WaitForSeconds(loadLevelDelay);
 
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex++;
+        int nextSceneIndex = currentSceneIndex + 1;
 
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
         {
