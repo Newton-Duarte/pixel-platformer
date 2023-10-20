@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2285683dc18cca14ca58aea42dc51845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadDelay: 0.75
+  coinsText: {fileID: 0}
+  livesText: {fileID: 0}
+  bonusLivesClip: {fileID: 8300000, guid: c3e7f3f3b2d77d34ba5866cb034e434d, type: 3}
