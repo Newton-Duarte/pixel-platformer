@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1290001707725120436}
   - component: {fileID: 1739593188447436019}
   - component: {fileID: 7663569237853748898}
+  - component: {fileID: 6115090633142261724}
   m_Layer: 0
   m_Name: GemBlue
   m_TagString: Collectible
@@ -121,3 +122,18 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.15359747
+--- !u!114 &6115090633142261724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62648643665762209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c6954aec58d3048bfc8388b3cfbac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Gem
+  score: 1
+  gemClip: {fileID: 8300000, guid: e995db9259e899f46b318de23555fa45, type: 3}
