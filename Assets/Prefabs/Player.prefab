@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 7959881463249237415}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 40a8b16e92b4ec9499ca0c3ae69c102b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
