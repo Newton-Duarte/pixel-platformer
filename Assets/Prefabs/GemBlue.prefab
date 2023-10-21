@@ -134,6 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c6954aec58d3048bfc8388b3cfbac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Gem
-  score: 1
-  gemClip: {fileID: 8300000, guid: e995db9259e899f46b318de23555fa45, type: 3}
+  type: 0
+  score: 10
+  pickupClip: {fileID: 8300000, guid: e995db9259e899f46b318de23555fa45, type: 3}
