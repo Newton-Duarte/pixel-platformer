@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] float loadDelay = 0.75f;
+    [SerializeField] TextMeshProUGUI keysText;
     [SerializeField] TextMeshProUGUI coinsText;
     [SerializeField] TextMeshProUGUI livesText;
     [SerializeField] AudioClip bonusLivesClip;
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     Player player;
     int playerLives = 3;
     int coins = 0;
+    int keys = 0;
 
     Coroutine gameOverRoutine;
     Coroutine resetLevelRoutine;
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
     {
         livesText.text = $"x{playerLives}";
         coinsText.text = $"x{coins}";
+        keysText.text = $"x{keys}";
     }
 
     public void AddCoins(int value)
@@ -50,6 +53,12 @@ public class GameManager : MonoBehaviour
         UpdateUI();
     }
 
+    public void AddKeys(int value)
+    {
+        keys += value;
+        UpdateUI();
+    }
+
     void ManageSingleton()
     {
         int numOfGameManager = FindObjectsByType<GameManager>(FindObjectsSortMode.None).Length;
@@ -61,6 +70,11 @@ public class GameManager : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    public int GetKeys()
+    {
+        return keys;
     }
 
     public void ProcessPlayerDeath()
