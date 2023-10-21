@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6733699833505597796}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheckR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 8964992894611103586}
   - component: {fileID: 334071482346732936}
   - component: {fileID: 7959881463249237415}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -260,6 +260,7 @@ MonoBehaviour:
   jumpClip: {fileID: 8300000, guid: 55ea4e099161c0d4e8f8e3d10b529aa9, type: 3}
   spikeClip: {fileID: 8300000, guid: e629b6e10ae58224cbdd082b05a69064, type: 3}
   dieClip: {fileID: 8300000, guid: 40768644e9de9f74ab250076a9228035, type: 3}
+  projectileObject: {fileID: 6616301117701837408, guid: 297935a0d962ab541b16c1b42e662c2a, type: 3}
 --- !u!1 &7925936566196143194
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1384441115732920528}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheckL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
