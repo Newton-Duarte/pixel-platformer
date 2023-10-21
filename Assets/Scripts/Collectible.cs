@@ -1,23 +1,33 @@
 using UnityEngine;
 
-public class Collectible : MonoBehaviour
+public class Collectible : MonoBehaviour, ICollectible
 {
-    [SerializeField] string name;
-    [SerializeField] int score = 1;
-    [SerializeField] AudioClip gemClip;
+    [SerializeField] ECollectibleType type;
+    [SerializeField] int value = 1;
+    [SerializeField] AudioClip pickupClip;
 
     GameManager gameManager;
+
 
     void Awake()
     {
         gameManager = FindAnyObjectByType<GameManager>();
     }
 
-    void Collect()
+    public void Collect()
     {
-        gameManager.AddCoins(score);
-        AudioManager.GetInstance().PlaySFX(gemClip);
-        Destroy(gameObject);
+        switch (type)
+        {
+            case ECollectibleType.Coin:
+            case ECollectibleType.Gem:
+                CollectCoin();
+                break;
+            case ECollectibleType.Key:
+                CollectKey();
+                break;
+            default:
+                break;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -26,5 +36,19 @@ public class Collectible : MonoBehaviour
         {
             Collect();
         }
+    }
+
+    void CollectCoin()
+    {
+        gameManager.AddCoins(value);
+        AudioManager.GetInstance().PlaySFX(pickupClip);
+        Destroy(gameObject);
+    }
+
+    void CollectKey()
+    {
+        gameManager.AddKeys(value);
+        AudioManager.GetInstance().PlaySFX(pickupClip);
+        Destroy(gameObject);
     }
 }
