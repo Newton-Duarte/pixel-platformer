@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip spikeClip;
     [SerializeField] AudioClip dieClip;
 
+    [SerializeField] GameObject projectileObject;
+
     bool isGrounded;
     public bool isAlive { get; private set; } = true;
 
@@ -62,6 +64,11 @@ public class Player : MonoBehaviour
     void OnMove(InputValue value)
     {
         rawInput = value.Get<Vector2>();
+    }
+
+    void OnFire(InputValue value)
+    {
+        Instantiate(projectileObject, transform.position, projectileObject.transform.localRotation);
     }
 
     void OnJump(InputValue value)
