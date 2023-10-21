@@ -135,9 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c6954aec58d3048bfc8388b3cfbac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Gem
-  score: 1
-  gemClip: {fileID: 8300000, guid: e995db9259e899f46b318de23555fa45, type: 3}
+  Type: 1
+  score: 5
+  pickupClip: {fileID: 8300000, guid: e995db9259e899f46b318de23555fa45, type: 3}
 --- !u!50 &3549541958708590639
 Rigidbody2D:
   serializedVersion: 4
