@@ -45,11 +45,11 @@ TagManager:
   - name: Background
     uniqueID: 346660821
     locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Environment
     uniqueID: 429849517
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Interactable
     uniqueID: 1436486137
