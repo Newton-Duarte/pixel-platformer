@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
         {
             playerLives--;
             ResetLevel();
+            UpdateUI();
         }
         else
         {
