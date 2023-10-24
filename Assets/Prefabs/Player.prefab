@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6733699833505597796}
   m_Layer: 8
   m_Name: GroundCheckR
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -474568343
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 98542044798547263, guid: 137bf5579acbeeb438cd92413eb3b7a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 1384441115732920528}
   m_Layer: 8
   m_Name: GroundCheckL
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
