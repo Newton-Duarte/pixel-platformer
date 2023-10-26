@@ -266,6 +266,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: -1
-  jumpForce: 25
-  jumpForceMultipler: 1.25
+  jumpForce: 15
   headPoint: {fileID: 9016931644260346643}
+  hitClip: {fileID: 8300000, guid: 101c8752d800c4a4cb78d9a5d9f975fc, type: 3}
