@@ -5,14 +5,17 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 1f;
-    [SerializeField] float jumpForce = 0.01f; //TODO: The jumpForce is too strong, the player is being pushed to the top
+    [SerializeField] float jumpForce = 15f;
     [SerializeField] Transform headPoint;
+    [SerializeField] AudioClip hitClip;
 
     Rigidbody2D rb;
+    Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -36,8 +39,18 @@ public class Enemy : MonoBehaviour
 
         if (collidesOnHead)
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity += new Vector2(0f, jumpForce);
+            var collisionRb = collision.gameObject.GetComponent<Rigidbody2D>();
+            collisionRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             Die();
+        }
+        else
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
+
+            if (player.isAlive)
+            {
+                collision.gameObject.GetComponent<Player>().Die();
+            }
         }
     }
 
@@ -51,6 +64,9 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        moveSpeed = 0;
+        animator.SetTrigger("Die");
+        AudioManager.GetInstance().PlaySFX(hitClip);
+        Destroy(gameObject, 0.25f);
     }
 }
