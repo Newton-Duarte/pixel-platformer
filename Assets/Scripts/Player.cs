@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        bodyCollider = GetComponent<CapsuleCollider2D>();
     }
 
     void FixedUpdate()
@@ -99,9 +100,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Die()
+    public void Die()
     {
         isAlive = false;
+        bodyCollider.enabled = false;
         rb.velocity = new Vector2(10f, 10f);
         rb.velocity = new Vector2(0f, rb.velocity.y);
         animator.SetTrigger("isHurt");
