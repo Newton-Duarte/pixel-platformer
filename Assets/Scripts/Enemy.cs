@@ -5,7 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 1f;
-    [SerializeField] float jumpForce = 15f;
+    [SerializeField] float jumpForce = 10f;
+    [SerializeField] float jumpForceMultiplier = 1.5f;
     [SerializeField] Transform headPoint;
     [SerializeField] AudioClip hitClip;
 
@@ -39,8 +40,12 @@ public class Enemy : MonoBehaviour
 
         if (collidesOnHead)
         {
+            var player = collision.gameObject.GetComponent<Player>();
             var collisionRb = collision.gameObject.GetComponent<Rigidbody2D>();
-            collisionRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+            float forceY = player.isHoldingJumpButton ? jumpForce * jumpForceMultiplier : jumpForce;
+
+            collisionRb.AddForce(Vector2.up * forceY, ForceMode2D.Impulse);
             Die();
         }
         else
