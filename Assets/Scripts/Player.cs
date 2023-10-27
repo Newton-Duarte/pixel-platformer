@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public bool isAlive { get; private set; } = true;
 
     Vector2 rawInput;
+    [HideInInspector] public bool isHoldingJumpButton { get; private set; }
     Rigidbody2D rb;
     Animator animator;
     CapsuleCollider2D bodyCollider;
@@ -74,6 +75,7 @@ public class Player : MonoBehaviour
 
     void OnJump(InputValue value)
     {
+        isHoldingJumpButton = value.isPressed;
         if (isGrounded && value.isPressed)
         {
             rb.AddForceY(jumpForce);
